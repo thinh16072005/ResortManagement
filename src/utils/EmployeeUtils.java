@@ -1,13 +1,20 @@
 package utils;
 
-import java.util.regex.Pattern;
 import java.util.Calendar;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class EmployeeUtils {
 
+    public static String getValue(String msg){
+        System.out.print(msg);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+    
     public static void validateEmployeeId(String employeeId) throws Exception {
-        if (!Pattern.matches("NV-\\d{4}", employeeId)) {
-            throw new Exception("Invalid employee ID. Must be in the format NV-YYYY.");
+        if (!Pattern.matches("EMP-\\d{4}", employeeId)) {
+            throw new Exception("Invalid employee ID. Must be in the format EMP-YYYY.");
         }
     }
 

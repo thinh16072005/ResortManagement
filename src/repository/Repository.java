@@ -11,5 +11,5 @@ public interface Repository<T, C> {
     
     C readfile();
     
-    T writeFile(C entities);
+    void writeFile(C entities);
 }

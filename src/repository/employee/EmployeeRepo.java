@@ -1,14 +1,14 @@
 package repository.employee;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import model.person.Employee;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class EmployeeRepo implements IEmployeeRepo {
 
@@ -21,7 +21,7 @@ public class EmployeeRepo implements IEmployeeRepo {
             BufferedReader input = new BufferedReader(new FileReader(path + employeePath));
 
             while ((line = input.readLine()) != null) {
-                String[] tokString = line.split(";");
+                String[] tokString = line.split(",");
                 Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(tokString[2]);
                 boolean gender = tokString[3].equals("Male") ? true : false;
                 double salary = Double.parseDouble(tokString[9]);

@@ -21,10 +21,13 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
     @Override
     public void add(Employee employee) {
         
+        
+        empList.add(employee);
     }
 
     @Override
     public void display() {
+        readfile();
         for (Employee emp : empList) {
             System.out.println(emp);
         }
@@ -32,12 +35,21 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
     @Override
     public Employee find(String id) {
-        
+        for (Employee emp : empList) {
+            if (emp.getEmployeeId().equalsIgnoreCase(id)) {
+                return emp;
+            }
+        }
+        return null;
     }
 
     @Override
     public void update(Employee e) {
-        
+        for (Employee emp : empList) {
+            if (emp.getEmployeeId().equalsIgnoreCase(e.getEmployeeId())) {
+                emp = e;
+            }
+        }
     }
     
 }

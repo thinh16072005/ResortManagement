@@ -40,11 +40,13 @@ public class ResortController extends Menu implements SubMenus {
     public void displayEmployeeMenu() {
         EmployeeService empsrv = new EmployeeService();
         
-        Menu employeeMenu = new Menu("EMPLOYEE OPTIONS", employeeOptions) {
+        Menu employeeMenu = new Menu("\nEMPLOYEE OPTIONS", employeeOptions) {
             @Override
             public void execute(int ch) {
                 switch (ch) {
                     case 1 -> empsrv.display();
+                    // case 2 -> empsrv.add(employee);
+                    // case 3 -> empsrv.update(e);
                 }
             }
         };
@@ -53,7 +55,7 @@ public class ResortController extends Menu implements SubMenus {
     
     @Override
     public void displayCustomerMenu() {
-        Menu customerMenu = new Menu("CUSTOMER OPTIONS", customerOptions) {
+        Menu customerMenu = new Menu("\nCUSTOMER OPTIONS", customerOptions) {
             @Override
             public void execute(int ch) {
             }
@@ -63,7 +65,7 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayFacilityMenu() {
-        Menu facilityMenu = new Menu("FACILITY OPTIONS", facilityOptions) {
+        Menu facilityMenu = new Menu("\nFACILITY OPTIONS", facilityOptions) {
             @Override
             public void execute(int ch) {
                 
@@ -74,7 +76,7 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayBookingMenu() {
-        Menu bookingMenu = new Menu("BOOKING OPTIONS", bookingOptions) {
+        Menu bookingMenu = new Menu("\nBOOKING OPTIONS", bookingOptions) {
             @Override
             public void execute(int ch) {
                 
@@ -85,7 +87,7 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayPromotionMenu() {
-        Menu promotionMenu = new Menu("PROMOTION OPTIONS", promotionOptions) {
+        Menu promotionMenu = new Menu("\nPROMOTION OPTIONS", promotionOptions) {
             @Override
             public void execute(int ch) {
                 

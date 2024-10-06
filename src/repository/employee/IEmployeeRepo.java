@@ -7,11 +7,11 @@ import repository.Repository;
 
 public interface IEmployeeRepo extends Repository<Employee, ArrayList<Employee>> {
     
-    String employeePath = "\\data\\employee.csv";
-
-    @Override
-    void writeFile(ArrayList<Employee> employee);
+    String employeePath = "\\data\\employee.csv";    
 
     @Override
     ArrayList<Employee> readfile();
+    
+    @Override
+    void writeFile(ArrayList<Employee> employee);
 }

@@ -1,7 +1,6 @@
 package model.person;
 
 import java.util.Date;
-
 import model.Person;
 
 public class Employee extends Person {
@@ -101,20 +100,35 @@ public class Employee extends Person {
     }
 
     @Override
-    public void showInfo() {
-        System.out.println("Employee Information:");
-        System.out.println("-------------------------------------------------");
-        System.out.printf("| %-15s | %-20s |\n", "Employee ID", getEmployeeId());
-        System.out.printf("| %-15s | %-20s |\n", "Name", getName());
-        System.out.printf("| %-15s | %-20s |\n", "Date of Birth", getDateOfBirth());
-        System.out.printf("| %-15s | %-20s |\n", "Gender", isGender() ? "Male" : "Female");
-        System.out.printf("| %-15s | %-20s |\n", "ID Card", getIdCard());
-        System.out.printf("| %-15s | %-20s |\n", "Phone Number", getPhoneNumber());
-        System.out.printf("| %-15s | %-20s |\n", "Email", getEmail());
-        System.out.printf("| %-15s | %-20s |\n", "Level", getLevel());
-        System.out.printf("| %-15s | %-20s |\n", "Position", getPosition());
-        System.out.printf("| %-15s | %-20s |\n", "Salary", getSalary());
-        System.out.println("-------------------------------------------------");
-    }
+    public String toString() {
+        return String.format("""
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         """,
+                "Field", "Value",
+                "Employee ID", getEmployeeId(),
+                "Name", getName(),
+                "Date of Birth", getDateOfBirth(),
+                "Gender", isGender() ? "Male" : "Female",
+                "ID Card", getIdCard(),
+                "Phone Number", getPhoneNumber(),
+                "Email", getEmail(),
+                "Level", getLevel(),
+                "Position", getPosition(),
+                "Salary", getSalary()
+    );
+}
 }
 
