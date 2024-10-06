@@ -1,5 +1,8 @@
 package utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Validation {
@@ -7,9 +10,14 @@ public class Validation {
     private static final Scanner sc = new Scanner(System.in);
     
     // Enable users enter value:
-    public static String getValue(String msg){
+    public static String getValue(String msg) {
         System.out.print(msg);
         Scanner sc = new Scanner(System.in);
+        while (true) {
+            if (sc.hasNextLine()) {
+                break;
+            }
+        }
         return sc.nextLine();
     }
     
@@ -75,4 +83,23 @@ public class Validation {
         }
     }
     
+    public static boolean convertStringToBoolean(String msg) {
+        if (msg.equalsIgnoreCase("true") || msg.equalsIgnoreCase("yes") || msg.equalsIgnoreCase("y")) {
+            return true;
+        } else if (msg.equalsIgnoreCase("false") || msg.equalsIgnoreCase("no") || msg.equalsIgnoreCase("n")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException("Invalid input for boolean conversion");
+        }
+    }
+
+    public static Date convertStringToDate(String dob) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            return sdf.parse(dob);
+        } catch (ParseException e) {
+            System.err.println("Invalid date format. Please enter date in format dd/MM/yyyy.");
+            return null;
+        }
+    }
 }

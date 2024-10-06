@@ -1,7 +1,6 @@
 package model.person;
 
 import java.util.Date;
-
 import model.Person;
 
 
@@ -39,10 +38,5 @@ public class Customer extends Person {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public void showInfo() {
-        System.out.println("Customer: " + getName() + ", Type: " + customerType + ", Address: " + address);
     }
 }

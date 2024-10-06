@@ -52,9 +52,9 @@ public abstract class Menu {
         return sc.nextInt();
     }
 //----------------------------------------------------
-    public abstract void execute(int ch);
+    public abstract void execute(int ch) throws Exception;
 //----------------------------------------------------
-    public void run() 
+    public void run() throws Exception 
     {
         while (true) {
             int ch = getSelected();

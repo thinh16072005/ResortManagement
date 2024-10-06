@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public abstract class Person {
     protected String name;
@@ -11,12 +12,12 @@ public abstract class Person {
     protected String email;
 
     public Person(String name, Date dateOfBirth, boolean gender, String idCard, String phoneNumber, String email) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
+        setName(name);
+        setDateOfBirth(dateOfBirth);
         this.gender = gender;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        setIdCard(idCard);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
     }
 
 
@@ -25,6 +26,9 @@ public abstract class Person {
     }
 
     public void setName(String name) {
+        if (!Pattern.matches("([A-Z][a-z]*\\s*)+", name)) {
+            System.err.println("Invalid name. Each word must start with an uppercase letter.");
+        }
         this.name = name;
     }
 
@@ -33,7 +37,6 @@ public abstract class Person {
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
-        
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -46,6 +49,9 @@ public abstract class Person {
     }
 
     public String getIdCard() {
+        if (!Pattern.matches("\\d{9}|\\d{12}", idCard)) {
+            System.err.println("Invalid ID card. Must be between 9 and 12 digits.");
+        }
         return idCard;
     }
 
@@ -58,6 +64,9 @@ public abstract class Person {
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if (!Pattern.matches("\\d{10}", phoneNumber)) {
+            System.err.println("Invalid phone number. 10 digits max only!");
+        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -66,8 +75,9 @@ public abstract class Person {
     }
 
     public void setEmail(String email) {
+        if (!Pattern.matches("\\w+@\\w+\\.\\w+", email)) {
+            System.err.println("Invalid email. Must be in the format <username>@<domain>.<extension>");
+        }
         this.email = email;
     }
-
-    public abstract void showInfo();
 }

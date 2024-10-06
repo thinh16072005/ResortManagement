@@ -23,7 +23,7 @@ public class ResortController extends Menu implements SubMenus {
     
             
     @Override
-    public void execute(int ch) {
+    public void execute(int ch) throws Exception {
         switch (ch) {
             case 1 -> displayEmployeeMenu();
             case 2 -> displayCustomerMenu();
@@ -37,16 +37,16 @@ public class ResortController extends Menu implements SubMenus {
     }
 
     @Override
-    public void displayEmployeeMenu() {
+    public void displayEmployeeMenu() throws Exception {
         EmployeeService empsrv = new EmployeeService();
         
         Menu employeeMenu = new Menu("\nEMPLOYEE OPTIONS", employeeOptions) {
             @Override
-            public void execute(int ch) {
+            public void execute(int ch) throws Exception{
                 switch (ch) {
                     case 1 -> empsrv.display();
-                    // case 2 -> empsrv.add(employee);
-                    // case 3 -> empsrv.update(e);
+                    case 2 -> empsrv.add(null);
+                    // case 3 -> empsrv.update(id);
                 }
             }
         };
@@ -54,7 +54,7 @@ public class ResortController extends Menu implements SubMenus {
     }
     
     @Override
-    public void displayCustomerMenu() {
+    public void displayCustomerMenu() throws Exception {
         Menu customerMenu = new Menu("\nCUSTOMER OPTIONS", customerOptions) {
             @Override
             public void execute(int ch) {
@@ -64,7 +64,7 @@ public class ResortController extends Menu implements SubMenus {
     }
 
     @Override
-    public void displayFacilityMenu() {
+    public void displayFacilityMenu() throws Exception {
         Menu facilityMenu = new Menu("\nFACILITY OPTIONS", facilityOptions) {
             @Override
             public void execute(int ch) {
@@ -75,7 +75,7 @@ public class ResortController extends Menu implements SubMenus {
     }
 
     @Override
-    public void displayBookingMenu() {
+    public void displayBookingMenu() throws Exception {
         Menu bookingMenu = new Menu("\nBOOKING OPTIONS", bookingOptions) {
             @Override
             public void execute(int ch) {
@@ -86,7 +86,7 @@ public class ResortController extends Menu implements SubMenus {
     }
 
     @Override
-    public void displayPromotionMenu() {
+    public void displayPromotionMenu() throws Exception {
         Menu promotionMenu = new Menu("\nPROMOTION OPTIONS", promotionOptions) {
             @Override
             public void execute(int ch) {
@@ -97,7 +97,7 @@ public class ResortController extends Menu implements SubMenus {
     }
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ResortController rs = new ResortController("----RESORT MANAGEMENT----", mainMenuOptions);
         rs.run();
     }

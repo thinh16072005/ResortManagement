@@ -9,13 +9,13 @@ public interface IEmployeeService extends Service<Employee> {
     void save();
 
     @Override
-    void add(Employee entity);
+    void add(Employee employee);
 
     @Override
     void display();
 
     @Override
-    Employee find(String entity);
+    Employee find(String entity) throws Exception;
     
     void update(Employee e);
     

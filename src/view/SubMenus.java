@@ -10,7 +10,7 @@ package view;
  */
 public interface SubMenus {
     
-    void displayEmployeeMenu();
+    void displayEmployeeMenu() throws Exception;
     String[] employeeOptions = {
             "Display list employees",
             "Add new employee",
@@ -18,7 +18,7 @@ public interface SubMenus {
             "Return to main menu",
         };
     
-    void displayCustomerMenu();
+    void displayCustomerMenu() throws Exception;
     String[] customerOptions = {
             "Display list of customers",
             "Add new customers",
@@ -26,7 +26,7 @@ public interface SubMenus {
             "Return main menu",
         };
     
-    void displayFacilityMenu();
+    void displayFacilityMenu() throws Exception;
     String[] facilityOptions = {
             "Display list facility",
             "Add new facility",
@@ -34,7 +34,7 @@ public interface SubMenus {
             "Return to main menu"
         };
     
-    void displayBookingMenu();
+    void displayBookingMenu() throws Exception;
     String[] bookingOptions = {
             "Add new booking",
             "Display list booking",
@@ -44,7 +44,7 @@ public interface SubMenus {
             "Return to main menu",
         };
     
-    void displayPromotionMenu();
+    void displayPromotionMenu() throws Exception;
     String[] promotionOptions = {
             "Display list of customers using the service",
             "Display list of customers getting the voucher",
