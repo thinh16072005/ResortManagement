@@ -97,8 +97,8 @@ public class Employee extends Person {
     }
 
     public void setPosition(String position) {
-        if (!level.equals("Receptionist") && !level.equals("Auditor") && !level.equals("Supervisor") &&
-            !level.equals("Waitor") && !level.equals("F&B Manager") && !level.equals("HR Manager")){
+        if (!position.equals("Receptionist") && !position.equals("Auditor") && !position.equals("Supervisor") &&
+            !position.equals("Waitor") && !position.equals("F&B Manager") && !position.equals("HR Manager")){
             System.err.println("Invalid position. Must be one of: Receptionist, Auditor, Supervisor, Waitor, F&B Manager, HR Manager.");
         }
         this.position = position;

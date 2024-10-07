@@ -46,7 +46,7 @@ public class ResortController extends Menu implements SubMenus {
                 switch (ch) {
                     case 1 -> empsrv.display();
                     case 2 -> empsrv.add(null);
-                    // case 3 -> empsrv.update(id);
+                    case 3 -> empsrv.update(null);
                 }
             }
         };

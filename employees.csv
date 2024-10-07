@@ -1,0 +1,270 @@
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0001             |
++-----------------+----------------------+
+| Name            | Pham hung thinh      |
+| Date of Birth   | Mon Feb 21 00:00:00 ICT 2000 |
+| Gender          | Female               |
+| ID Card         | 578342947328         |
+| Phone Number    | 923647812            |
+| Email           | huyennguyen@gmail.com |
+| Level           | University           |
+| Position        | Receptionist         |
+| Salary          | 700.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0002             |
++-----------------+----------------------+
+| Name            | Tran Van Bao         |
+| Date of Birth   | Tue Jun 25 00:00:00 ICT 1996 |
+| Gender          | Male                 |
+| ID Card         | 902467196            |
+| Phone Number    | 356784938            |
+| Email           | baottv@gmail.com     |
+| Level           | University           |
+| Position        | Supervisor           |
+| Salary          | 1000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0003             |
++-----------------+----------------------+
+| Name            | Kim Tien Dinh        |
+| Date of Birth   | Thu Jul 30 00:00:00 ICT 1998 |
+| Gender          | Male                 |
+| ID Card         | 563842099231         |
+| Phone Number    | 937648435            |
+| Email           | dinhkt23@gmail.com   |
+| Level           | Postgraduate         |
+| Position        | Auditor              |
+| Salary          | 2000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0004             |
++-----------------+----------------------+
+| Name            | Phan Ha Thuong       |
+| Date of Birth   | Fri Sep 21 00:00:00 ICT 2001 |
+| Gender          | Female               |
+| ID Card         | 711183578326         |
+| Phone Number    | 184693275            |
+| Email           | thuongphan@gmail.com |
+| Level           | Intermediate         |
+| Position        | Waiter               |
+| Salary          | 500.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0005             |
++-----------------+----------------------+
+| Name            | Trinh Huyen Trang    |
+| Date of Birth   | Sun Jan 06 00:00:00 ICT 2002 |
+| Gender          | Female               |
+| ID Card         | 971438963            |
+| Phone Number    | 389574378            |
+| Email           | trangtrang@gmail.com |
+| Level           | Intermediate         |
+| Position        | Receptionist         |
+| Salary          | 7000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0006             |
++-----------------+----------------------+
+| Name            | Le Thi Ha            |
+| Date of Birth   | Thu Sep 07 00:00:00 ICT 2000 |
+| Gender          | Female               |
+| ID Card         | 311395067            |
+| Phone Number    | 985467293            |
+| Email           | halele783@gmail.com  |
+| Level           | University           |
+| Position        | Waiter               |
+| Salary          | 7500.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0007             |
++-----------------+----------------------+
+| Name            | Le Thi Hao           |
+| Date of Birth   | Fri Aug 08 00:00:00 ICT 1997 |
+| Gender          | Female               |
+| ID Card         | 851539012647         |
+| Phone Number    | 185658439            |
+| Email           | haothi567@gmail.com  |
+| Level           | Postgraduate         |
+| Position        | Supervisor           |
+| Salary          | 2000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0008             |
++-----------------+----------------------+
+| Name            | Le Thi Han           |
+| Date of Birth   | Fri Dec 31 00:00:00 ICT 1999 |
+| Gender          | Female               |
+| ID Card         | 311257397            |
+| Phone Number    | 948586721            |
+| Email           | lethiha99@gmail.com  |
+| Level           | University           |
+| Position        | HR Manager           |
+| Salary          | 800.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0009             |
++-----------------+----------------------+
+| Name            | Hoang Han            |
+| Date of Birth   | Thu Nov 21 00:00:00 ICT 1991 |
+| Gender          | Male                 |
+| ID Card         | 311259829336         |
+| Phone Number    | 948352421            |
+| Email           | hanhoanghan99@gmail.com |
+| Level           | Postgraduate         |
+| Position        | F&B Manager          |
+| Salary          | 3000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0001             |
++-----------------+----------------------+
+| Name            | Nguyen Thi Huyen     |
+| Date of Birth   | Mon Feb 21 00:00:00 ICT 2000 |
+| Gender          | Female               |
+| ID Card         | 578342947328         |
+| Phone Number    | 923647812            |
+| Email           | huyennguyen@gmail.com |
+| Level           | University           |
+| Position        | Receptionist         |
+| Salary          | 700.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0002             |
++-----------------+----------------------+
+| Name            | Tran Van Bao         |
+| Date of Birth   | Tue Jun 25 00:00:00 ICT 1996 |
+| Gender          | Male                 |
+| ID Card         | 902467196            |
+| Phone Number    | 356784938            |
+| Email           | baottv@gmail.com     |
+| Level           | University           |
+| Position        | Supervisor           |
+| Salary          | 1000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0003             |
++-----------------+----------------------+
+| Name            | Kim Tien Dinh        |
+| Date of Birth   | Thu Jul 30 00:00:00 ICT 1998 |
+| Gender          | Male                 |
+| ID Card         | 563842099231         |
+| Phone Number    | 937648435            |
+| Email           | dinhkt23@gmail.com   |
+| Level           | Postgraduate         |
+| Position        | Auditor              |
+| Salary          | 2000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0004             |
++-----------------+----------------------+
+| Name            | Phan Ha Thuong       |
+| Date of Birth   | Fri Sep 21 00:00:00 ICT 2001 |
+| Gender          | Female               |
+| ID Card         | 711183578326         |
+| Phone Number    | 184693275            |
+| Email           | thuongphan@gmail.com |
+| Level           | Intermediate         |
+| Position        | Waiter               |
+| Salary          | 500.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0005             |
++-----------------+----------------------+
+| Name            | Trinh Huyen Trang    |
+| Date of Birth   | Sun Jan 06 00:00:00 ICT 2002 |
+| Gender          | Female               |
+| ID Card         | 971438963            |
+| Phone Number    | 389574378            |
+| Email           | trangtrang@gmail.com |
+| Level           | Intermediate         |
+| Position        | Receptionist         |
+| Salary          | 7000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0006             |
++-----------------+----------------------+
+| Name            | Le Thi Ha            |
+| Date of Birth   | Thu Sep 07 00:00:00 ICT 2000 |
+| Gender          | Female               |
+| ID Card         | 311395067            |
+| Phone Number    | 985467293            |
+| Email           | halele783@gmail.com  |
+| Level           | University           |
+| Position        | Waiter               |
+| Salary          | 7500.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0007             |
++-----------------+----------------------+
+| Name            | Le Thi Hao           |
+| Date of Birth   | Fri Aug 08 00:00:00 ICT 1997 |
+| Gender          | Female               |
+| ID Card         | 851539012647         |
+| Phone Number    | 185658439            |
+| Email           | haothi567@gmail.com  |
+| Level           | Postgraduate         |
+| Position        | Supervisor           |
+| Salary          | 2000.0               |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0008             |
++-----------------+----------------------+
+| Name            | Le Thi Han           |
+| Date of Birth   | Fri Dec 31 00:00:00 ICT 1999 |
+| Gender          | Female               |
+| ID Card         | 311257397            |
+| Phone Number    | 948586721            |
+| Email           | lethiha99@gmail.com  |
+| Level           | University           |
+| Position        | HR Manager           |
+| Salary          | 800.0                |
++-----------------+----------------------+
+
+| Field           | Value                |
++-----------------+----------------------+
+| Employee ID     | EMP-0009             |
++-----------------+----------------------+
+| Name            | Hoang Han            |
+| Date of Birth   | Thu Nov 21 00:00:00 ICT 1991 |
+| Gender          | Male                 |
+| ID Card         | 311259829336         |
+| Phone Number    | 948352421            |
+| Email           | hanhoanghan99@gmail.com |
+| Level           | Postgraduate         |
+| Position        | F&B Manager          |
+| Salary          | 3000.0               |
++-----------------+----------------------+
+
