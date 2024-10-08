@@ -8,7 +8,7 @@ import model.person.Customer;
 
 public class CustomerRepo implements ICustomerRepo {
 
-    protected ArrayList<Customer> empList = new ArrayList<>();
+    protected ArrayList<Customer> cusList = new ArrayList<>();
 
     @Override
     public void writeFile(ArrayList<Customer> entities) {
@@ -42,9 +42,9 @@ public class CustomerRepo implements ICustomerRepo {
                 boolean gender = tokString[3].equals("Male") ? true : false;
                 double salary = Double.parseDouble(tokString[9]);
                 Customer customer = new Customer(tokString[0], tokString[1], dob, gender, tokString[4], tokString[5], tokString[6], tokString[7], tokString[8]);
-                empList.add(customer);
+                cusList.add(customer);
             }
-            return empList;
+            return cusList;
 
         } catch (Exception e) {
             e.printStackTrace();

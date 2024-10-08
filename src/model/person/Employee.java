@@ -29,57 +29,6 @@ public class Employee extends Person {
         this.employeeId = employeeId;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    @Override
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-    
-    
-    public boolean isGender() {
-        return gender;
-    }
-
-    @Override
-    public void setGender(boolean gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    @Override
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-        
-        this.email = email;
-    }
-
     public String getLevel() {
         return level;
     }
@@ -118,33 +67,33 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return String.format("""
-                         | %-15s | %-20s |
-                         +-----------------+----------------------+
-                         | %-15s | %-20s |
-                         +-----------------+----------------------+
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         | %-15s | %-20s |
-                         +-----------------+----------------------+
-                         """,
+                        | %-15s | %-20s |
+                        +-----------------+----------------------+
+                        | %-15s | %-20s |
+                        +-----------------+----------------------+
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        | %-15s | %-20s |
+                        +-----------------+----------------------+
+                        """,
                 "Field", "Value",
                 "Employee ID", getEmployeeId(),
                 "Name", getName(),
                 "Date of Birth", getDateOfBirth(),
-                "Gender", isGender() ? "Male" : "Female",
+                "Gender", getGender() ? "Male" : "Female",
                 "ID Card", getIdCard(),
                 "Phone Number", getPhoneNumber(),
                 "Email", getEmail(),
                 "Level", getLevel(),
                 "Position", getPosition(),
                 "Salary", getSalary()
-    );
-}
+        );
+    }
 }
 

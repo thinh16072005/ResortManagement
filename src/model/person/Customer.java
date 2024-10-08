@@ -39,4 +39,35 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         | %-15s | %-20s |
+                         +-----------------+----------------------+
+                         """,
+                "Field", "Value",
+                "Customer ID", getCustomerId(),
+                "Name", getName(),
+                "Date of Birth", getDateOfBirth(),
+                "Gender", getGender() ? "Male" : "Female",
+                "ID Card", getIdCard(),
+                "Phone Number", getPhoneNumber(),
+                "Email", getEmail(),
+                "Customer Type", getCustomerType(),
+                "Address", getAddress()
+        );
+    }
 }

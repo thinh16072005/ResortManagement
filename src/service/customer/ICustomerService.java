@@ -4,26 +4,24 @@
  */
 package service.customer;
 
+import model.person.Customer;
+import model.person.Employee;
 import service.Service;
 
-/**
- *
- * @author hungt
- */
-public interface ICustomerService extends Service {
+public interface ICustomerService extends Service<Customer> {
 
     @Override
     public void save();
 
     @Override
-    public void add(Object entity);
+    public void add(Customer customer);
 
     @Override
     public void display();
 
     @Override
-    public Object find(String entity) throws Exception;
+    public Customer find(String entity) throws Exception;
 
-    
-    
+    void update(Customer e);
+
 }
