@@ -4,8 +4,17 @@
  */
 package repository.customer;
 
+import java.util.ArrayList;
+import model.person.Customer;
 import repository.Repository;
 
-public interface ICustomerRepo extends Repository {
+public interface ICustomerRepo extends Repository<Customer, ArrayList<Customer>> {
     
+    String customerPath = "\\data\\customer.csv";
+
+    @Override
+    public void writeFile(ArrayList<Customer> entities);
+
+    @Override
+    ArrayList<Customer> readfile();
 }

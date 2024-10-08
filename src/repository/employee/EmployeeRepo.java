@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import model.person.Employee;
 
 public class EmployeeRepo implements IEmployeeRepo {
@@ -37,13 +38,17 @@ public class EmployeeRepo implements IEmployeeRepo {
     }
 
     @Override
-    public void writeFile(ArrayList<Employee> employee) {
-        try (BufferedWriter output = new BufferedWriter(new FileWriter(path + employeePath))) {
-            for (Employee emp : employee) {
-                String dob = new SimpleDateFormat("dd/MM/yyyy").format(emp.getDateOfBirth());
-                String gender = emp.isGender() ? "Male" : "Female";
-                String line = String.join(",", emp.getEmployeeId(), emp.getName(), dob, gender, emp.getPhoneNumber(),
-                        emp.getEmail(), emp.getPosition(), String.valueOf(emp.getSalary()));
+    public void writeFile(ArrayList<Employee> employees) {
+        try (BufferedWriter output = new BufferedWriter(new FileWriter(path + employeePath, true))) {
+            for (Employee employee : employees) {
+                String line = employee.getEmployeeId() + "," +
+                        employee.getName() + "," +
+                        new SimpleDateFormat("dd/MM/yyyy").format(employee.getDateOfBirth()) + "," +
+                        (employee.getGender() ? "Male" : "Female") + "," +
+                        employee.getPhoneNumber() + "," +
+                        employee.getEmail() + "," +
+                        employee.getPosition() + "," +
+                        employee.getSalary();
                 output.write(line);
                 output.newLine();
             }

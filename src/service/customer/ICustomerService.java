@@ -4,10 +4,26 @@
  */
 package service.customer;
 
+import service.Service;
+
 /**
  *
  * @author hungt
  */
-public interface ICustomerService {
+public interface ICustomerService extends Service {
+
+    @Override
+    public void save();
+
+    @Override
+    public void add(Object entity);
+
+    @Override
+    public void display();
+
+    @Override
+    public Object find(String entity) throws Exception;
+
+    
     
 }

@@ -8,6 +8,26 @@ package service.customer;
  *
  * @author hungt
  */
-public class CustomerService {
+public class CustomerService implements ICustomerService {
+
+    @Override
+    public void save() {
+        
+    }
+
+    @Override
+    public void add(Object entity) {
+        
+    }
+
+    @Override
+    public void display() {
+        
+    }
+
+    @Override
+    public Object find(String entity) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
