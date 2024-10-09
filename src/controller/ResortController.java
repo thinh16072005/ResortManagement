@@ -6,7 +6,6 @@ import view.SubMenus;
 
 public class ResortController extends Menu implements SubMenus {
     
-    
     static String[] mainMenuOptions = {
         "Employee Management",
         "Customer Management",

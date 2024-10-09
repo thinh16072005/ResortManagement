@@ -38,7 +38,7 @@ public class Employee extends Person {
             !level.equals("University") && !level.equals("Postgraduate")) {
             System.err.println("Invalid education level. Must be one of: Intermediate, College, University, Postgraduate.");
         }
-        this.level = level;
+        else {this.level = level;}
     }
 
     public String getPosition() {
@@ -47,10 +47,10 @@ public class Employee extends Person {
 
     public void setPosition(String position) {
         if (!position.equals("Receptionist") && !position.equals("Auditor") && !position.equals("Supervisor") &&
-            !position.equals("Waitor") && !position.equals("F&B Manager") && !position.equals("HR Manager")){
-            System.err.println("Invalid position. Must be one of: Receptionist, Auditor, Supervisor, Waitor, F&B Manager, HR Manager.");
+            !position.equals("Waiter") && !position.equals("F&B Manager") && !position.equals("HR Manager")){
+            System.err.println("Invalid position. Must be one of: Receptionist, Auditor, Supervisor, Waiter, F&B Manager, HR Manager.");
         }
-        this.position = position;
+        else {this.position = position;}
     }
 
     public double getSalary() {

@@ -5,7 +5,7 @@
 package service.customer;
 
 import model.person.Customer;
-import model.person.Employee;
+
 import service.Service;
 
 public interface ICustomerService extends Service<Customer> {

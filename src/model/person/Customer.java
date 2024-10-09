@@ -1,6 +1,7 @@
 package model.person;
 
 import java.util.Date;
+import java.util.regex.Pattern;
 import model.Person;
 
 
@@ -21,7 +22,10 @@ public class Customer extends Person {
     }
 
     public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+        if (!Pattern.matches("KH-\\d{4}", customerId)) {
+            System.err.println("Invalid employee ID. Must be in the format KH-YYYY.");
+        }
+        else {this.customerId = customerId;}
     }
 
     public String getCustomerType() {
@@ -29,7 +33,10 @@ public class Customer extends Person {
     }
 
     public void setCustomerType(String customerType) {
-        this.customerType = customerType;
+        if (!customerType.equals("Member") && !customerType.equals("Silver") &&
+            !customerType.equals("Gold") && !customerType.equals("Platinum") && !customerType.equals("Diamond"))
+        {System.err.println("Invalid customer type. Must be one of: Member, Silver, Gold, Platinum, Diamond.");}
+        else {this.customerType = customerType;}
     }
 
     public String getAddress() {

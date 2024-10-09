@@ -16,7 +16,6 @@
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/accomodation/Villa.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/accomodation/Room.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/controller/ResortController.java</file>
-            <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/person/Customer.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/employee/EmployeeService.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/customer/ICustomerService.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/reservation/Contract.java</file>
@@ -24,8 +23,8 @@
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/view/Menu.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/employee/IEmployeeService.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/person/Employee.java</file>
-            <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/Service.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/repository/customer/ICustomerRepo.java</file>
+            <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/Service.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/model/Person.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/repository/employee/IEmployeeRepo.java</file>
             <file>file:/C:/Users/hungt/Documents/NetBeansProjects/ResortManagement/src/service/booking/BookingService.java</file>
