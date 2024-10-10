@@ -25,13 +25,20 @@ public interface SubMenus {
             "Edit customers",
             "Return main menu",
         };
-    
+
+    // Facility
     void displayFacilityMenu() throws Exception;
     String[] facilityOptions = {
             "Display list facility",
             "Add new facility",
             "Display list facility maintenance",
             "Return to main menu"
+        };
+    String[] addFacilityOptions = {
+            "Add new villa",
+            "Add new house",
+            "Add new room",
+            "Return to facility menu"
         };
     
     void displayBookingMenu() throws Exception;

@@ -27,6 +27,9 @@ public class Villa extends Facility {
     }
 
     public void setPoolArea(double poolArea) {
+        if (poolArea <= 30) {
+            throw new IllegalArgumentException("Pool area must be greater than 30.");
+        }
         this.poolArea = poolArea;
     }
 
@@ -35,6 +38,9 @@ public class Villa extends Facility {
     }
 
     public void setFloorQuantity(int floorQuantity) {
+        if (floorQuantity <= 0) {
+            throw new IllegalArgumentException("Floor quantity must be greater than 0.");
+        }
         this.floorQuantity = floorQuantity;
     }
 

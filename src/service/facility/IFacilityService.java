@@ -4,6 +4,7 @@
  */
 package service.facility;
 
+import model.Facility;
 import service.Service;
 
 /**
@@ -11,5 +12,5 @@ import service.Service;
  * @author hungt
  */
 public interface IFacilityService extends Service {
-    
+
 }

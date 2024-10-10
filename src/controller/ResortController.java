@@ -1,5 +1,6 @@
 package controller;
 
+import service.customer.CustomerService;
 import service.employee.EmployeeService;
 import view.Menu;
 import view.SubMenus;
@@ -54,9 +55,16 @@ public class ResortController extends Menu implements SubMenus {
     
     @Override
     public void displayCustomerMenu() throws Exception {
+        CustomerService cussrv = new CustomerService();
+
         Menu customerMenu = new Menu("\nCUSTOMER OPTIONS", customerOptions) {
             @Override
             public void execute(int ch) {
+                switch (ch) {
+                    case 1 -> cussrv.display();
+                    case 2 -> cussrv.add(null);
+                    case 3 -> cussrv.update(null);
+                }
             }
         };
         customerMenu.run();
