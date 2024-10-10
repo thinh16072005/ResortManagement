@@ -26,7 +26,7 @@ public class Employee extends Person {
         if (!Pattern.matches("EMP-\\d{4}", employeeId)) {
             System.err.println("Invalid employee ID. Must be in the format EMP-YYYY.");
         }
-        this.employeeId = employeeId;
+        else {this.employeeId = employeeId;}
     }
 
     public String getLevel() {

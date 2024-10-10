@@ -49,14 +49,14 @@ public abstract class Person {
     }
 
     public String getIdCard() {
-        if (!Pattern.matches("\\d{9}|\\d{12}", idCard)) {
-            System.err.println("Invalid ID card. Must be between 9 and 12 digits.");
-        }
         return idCard;
     }
 
     public void setIdCard(String idCard) {
-        this.idCard = idCard;
+        if (!Pattern.matches("\\d{9,12}$", idCard)) {
+            System.err.println("Invalid ID card. Must be between 9 and 12 digits.");
+        }
+        else {this.idCard = idCard;}
     }
 
     public String getPhoneNumber() {
@@ -64,7 +64,7 @@ public abstract class Person {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        if (!Pattern.matches("^\\d{1,10}$", phoneNumber)) {
+        if (!Pattern.matches("^\\d{10}$", phoneNumber)) {
             System.err.println("Invalid phone number. 10 digits max only!");
         }
         else {this.phoneNumber = phoneNumber;}
@@ -78,6 +78,6 @@ public abstract class Person {
         if (!Pattern.matches("\\w+@\\w+\\.\\w+", email)) {
             System.err.println("Invalid email. Must be in the format <username>@<domain>.<extension>");
         }
-        this.email = email;
+        else {this.email = email;}
     }
 }

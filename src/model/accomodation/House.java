@@ -17,6 +17,9 @@ public class House extends Facility {
     }
 
     public void setRoomStandards(String roomStandards) {
+        if (!Character.isUpperCase(roomStandards.charAt(0))) {
+            throw new IllegalArgumentException("Service name must start with an uppercase letter.");
+        }
         this.roomStandards = roomStandards;
     }
 
@@ -25,6 +28,9 @@ public class House extends Facility {
     }
 
     public void setFloorQuantity(int floorQuantity) {
+        if (floorQuantity <= 0) {
+            throw new IllegalArgumentException("Floor quantity must be greater than 0.");
+        }
         this.floorQuantity = floorQuantity;
     }
     

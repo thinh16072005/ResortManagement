@@ -22,8 +22,8 @@ public class Customer extends Person {
     }
 
     public void setCustomerId(String customerId) {
-        if (!Pattern.matches("KH-\\d{4}", customerId)) {
-            System.err.println("Invalid employee ID. Must be in the format KH-YYYY.");
+        if (!Pattern.matches("CUS-\\d{4}", customerId)) {
+            System.err.println("Invalid employee ID. Must be in the format CUS-YYYY.");
         }
         else {this.customerId = customerId;}
     }
@@ -54,7 +54,6 @@ public class Customer extends Person {
                          +-----------------+----------------------+
                          | %-15s | %-20s |
                          +-----------------+----------------------+
-                         | %-15s | %-20s |
                          | %-15s | %-20s |
                          | %-15s | %-20s |
                          | %-15s | %-20s |

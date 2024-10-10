@@ -40,7 +40,6 @@ public class CustomerRepo implements ICustomerRepo {
                 String[] tokString = line.split(",");
                 Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(tokString[2]);
                 boolean gender = tokString[3].equals("Male") ? true : false;
-                double salary = Double.parseDouble(tokString[9]);
                 Customer customer = new Customer(tokString[0], tokString[1], dob, gender, tokString[4], tokString[5], tokString[6], tokString[7], tokString[8]);
                 cusList.add(customer);
             }

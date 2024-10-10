@@ -12,12 +12,6 @@ public class Validation {
     // Enable users enter value:
     public static String getValue(String msg) {
         System.out.print(msg);
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            if (sc.hasNextLine()) {
-                break;
-            }
-        }
         return sc.nextLine();
     }
     
@@ -72,9 +66,10 @@ public class Validation {
     public static String continueConfirm(String msg, String errMsg) {
         while (true) {
             try {
-                if (msg.equalsIgnoreCase("Y")) {
+                String result = getValue(msg);
+                if (result.equalsIgnoreCase("Y")) {
                     return "Y";
-                } else if (msg.equalsIgnoreCase("N")) {
+                } else if (result.equalsIgnoreCase("N")) {
                     return "N";
                 }
             } catch (Exception e) {
@@ -84,9 +79,9 @@ public class Validation {
     }
     
     public static boolean convertStringToBoolean(String msg) {
-        if (msg.equalsIgnoreCase("true") || msg.equalsIgnoreCase("yes") || msg.equalsIgnoreCase("y")) {
+        if (msg.equalsIgnoreCase("yes") || msg.equalsIgnoreCase("y")) {
             return true;
-        } else if (msg.equalsIgnoreCase("false") || msg.equalsIgnoreCase("no") || msg.equalsIgnoreCase("n")) {
+        } else if (msg.equalsIgnoreCase("no") || msg.equalsIgnoreCase("n")) {
             return false;
         } else {
             throw new IllegalArgumentException("Invalid input for boolean conversion");
