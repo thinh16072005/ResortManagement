@@ -1,10 +1,14 @@
 package repository.facility;
 
-import model.person.Employee;
+import model.Facility;
 import repository.Repository;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
-public interface IFacilityRepo extends Repository {
+public interface IFacilityRepo extends Repository<Facility, LinkedHashMap<Facility, Integer>> {
+    String facilityPath = "\\data\\facility.csv";
 
+    LinkedHashMap<Facility, Integer> readfile();
+
+    void writeFile(LinkedHashMap<Facility, Integer> facility);
 }

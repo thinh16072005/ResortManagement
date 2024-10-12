@@ -7,6 +7,8 @@ public class Villa extends Facility {
     private double poolArea;
     private int floorQuantity;
 
+    public Villa() {}
+
     public Villa(String serviceId, String serviceName, double areaUsage, double rentingPrice, int maxPeople, String rentingType, String roomStandards, double poolArea, int floorQuantity) {
         super(serviceId, serviceName, areaUsage, rentingPrice, maxPeople, rentingType);
         this.roomStandards = roomStandards;
@@ -27,7 +29,7 @@ public class Villa extends Facility {
     }
 
     public void setPoolArea(double poolArea) {
-        if (poolArea <= 30) {
+        if (poolArea < 30) {
             throw new IllegalArgumentException("Pool area must be greater than 30.");
         }
         this.poolArea = poolArea;
@@ -44,5 +46,9 @@ public class Villa extends Facility {
         this.floorQuantity = floorQuantity;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" %-15s %-10.2f %-10d", roomStandards, poolArea, floorQuantity);
+    }
     
 }

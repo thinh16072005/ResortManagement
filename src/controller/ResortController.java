@@ -1,7 +1,12 @@
 package controller;
 
+import model.Facility;
+import model.accomodation.House;
+import model.accomodation.Room;
+import model.accomodation.Villa;
 import service.customer.CustomerService;
 import service.employee.EmployeeService;
+import service.facility.FacilityService;
 import view.Menu;
 import view.SubMenus;
 
@@ -72,10 +77,28 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayFacilityMenu() throws Exception {
+        FacilityService facsrv = new FacilityService();
+
         Menu facilityMenu = new Menu("\nFACILITY OPTIONS", facilityOptions) {
             @Override
-            public void execute(int ch) {
-                
+            public void execute(int ch) throws Exception {
+                switch (ch) {
+                    case 1 -> facsrv.display();
+                    case 2 -> {
+                        Menu addFacilityMenu = new Menu("\nADD FACILITY OPTIONS", addFacilityOptions) {
+                            @Override
+                            public void execute(int ch) {
+                                switch (ch) {
+                                    case 1 -> facsrv.add(new Villa());
+                                    case 2 -> facsrv.add(new House());
+                                    case 3 -> facsrv.add(new Room());
+                                }
+                            }
+                        };
+                        addFacilityMenu.run();
+                    }
+                    case 3 -> facsrv.displayFacilitiesForMaintenance();
+                }
             }
         };
         facilityMenu.run();

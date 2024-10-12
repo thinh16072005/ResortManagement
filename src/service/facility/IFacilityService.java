@@ -11,6 +11,16 @@ import service.Service;
  *
  * @author hungt
  */
-public interface IFacilityService extends Service {
+public interface IFacilityService extends Service<Facility> {
+    @Override
+    Facility find(String entity) throws Exception;
 
+    @Override
+    void display();
+
+    @Override
+    void add(Facility entity);
+
+    @Override
+    void save();
 }

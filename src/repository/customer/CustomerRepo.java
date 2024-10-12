@@ -11,17 +11,19 @@ public class CustomerRepo implements ICustomerRepo {
     protected ArrayList<Customer> cusList = new ArrayList<>();
 
     @Override
-    public void writeFile(ArrayList<Customer> entities) {
+    public void writeFile(ArrayList<Customer> customers) {
         try (BufferedWriter output = new BufferedWriter(new FileWriter(path + customerPath, true))) {
-            for (Customer customer : entities) {
-                String line = customer.getCustomerId() + "," +
-                        customer.getName() + "," +
-                        new SimpleDateFormat("dd/MM/yyyy").format(customer.getDateOfBirth()) + "," +
-                        (customer.getGender() ? "Male" : "Female") + "," +
-                        customer.getPhoneNumber() + "," +
-                        customer.getEmail() + "," +
-                        customer.getCustomerType() + "," +
-                        customer.getAddress();
+            for (Customer customer : customers) {
+                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                        customer.getCustomerId(),
+                        customer.getName(),
+                        customer.getDateOfBirth(),
+                        customer.getGender(),
+                        customer.getIdCard(),
+                        customer.getPhoneNumber(),
+                        customer.getEmail(),
+                        customer.getCustomerType(),
+                        customer.getAddress());
                 output.write(line);
                 output.newLine();
             }

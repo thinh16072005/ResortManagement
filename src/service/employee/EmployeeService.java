@@ -1,24 +1,20 @@
 package service.employee;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import model.person.Employee;
 import repository.employee.EmployeeRepo;
 import utils.Validation;
+
+import java.lang.reflect.Field;
 
 public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
     @Override
     public void save() {
-        try (var writer = new BufferedWriter(new FileWriter("employees.csv", true))) {
-            for (Employee emp : empList) {
-                writer.write(emp.toString());
-                writer.newLine();
-            }
+        try {
+            writeFile(empList);
             System.out.println("Employee data saved.");
-        } catch (IOException e) {
-            System.out.println("Error saving employee data: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Error saving employee data: " + e.getMessage());
         }
     }
 
@@ -87,12 +83,22 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
     @Override
     public void update(Employee e) {
         try {
-            String id = Validation.getValue("Enter employee ID to update: ");
+            String id = Validation.getValue("\nEnter employee ID to update: ");
             Employee employee = find(id);
+            System.out.println("Employee found: ");
+            System.out.println(employee);
 
-            String attribute = Validation.getValue("Enter attribute to update (name, dob, gender, idCard, phoneNumber, email, level, position, salary): ");
+            // Let the user choose which attribute to update
+            // This is done by using reflection to get the fields of the superclass
+            Class<?> customerFields = Class.forName("Employee");
+            Field[] fields = customerFields.getSuperclass().getDeclaredFields();
+            for (Field field : fields) {
+                System.out.print("\t" + field.getName());
+            }
+
+            String attribute = Validation.getValue("\nEnter attribute to update: ");
             switch (attribute.toLowerCase()) {
-                case "name" -> employee.setName(Validation.checkString("Enter employee name: ", "Name should contain letters only!", "^[a-zA-Z]+$"));
+                case "name" -> employee.setName(Validation.checkString("Enter employee name: ", "Name should contain letters only!", "^[A-Za-z\s]+$"));
                 case "dob" -> employee.setDateOfBirth(Validation.convertStringToDate(Validation.getValue("Enter new date of birth: ")));
                 case "gender" -> employee.setGender(Validation.convertStringToBoolean(Validation.getValue("Male or Female? (T/F): ")));
                 case "idcard" -> employee.setIdCard(Validation.getValue("Enter new ID card: "));
@@ -102,13 +108,13 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
                 case "position" -> employee.setPosition(Validation.getValue("Enter new position: "));
                 case "salary" -> employee.setSalary(Double.parseDouble(Validation.getValue("Enter new salary: ")));
                 default -> {
-                    System.out.println("Invalid attribute.");
+                    System.err.println("Invalid attribute.");
                     return;
                 }
             }
             save();
         } catch (Exception ex) {
-            System.out.println("Error updating employee: " + ex.getMessage());
+            System.err.println("Error updating employee: " + ex.getMessage());
         }
     }
     

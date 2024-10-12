@@ -6,6 +6,8 @@ public class House extends Facility {
     private String roomStandards;
     private int floorQuantity;
 
+    public House() {}
+
     public House(String serviceId, String serviceName, double areaUsage, double rentingPrice, int maxPeople, String rentingType, String roomStandards, int floorQuantity) {
         super(serviceId, serviceName, areaUsage, rentingPrice, maxPeople, rentingType);
         this.roomStandards = roomStandards;
@@ -18,7 +20,7 @@ public class House extends Facility {
 
     public void setRoomStandards(String roomStandards) {
         if (!Character.isUpperCase(roomStandards.charAt(0))) {
-            throw new IllegalArgumentException("Service name must start with an uppercase letter.");
+            throw new IllegalArgumentException("Room standard must start with an uppercase letter.");
         }
         this.roomStandards = roomStandards;
     }
@@ -33,6 +35,9 @@ public class House extends Facility {
         }
         this.floorQuantity = floorQuantity;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" %-15s %-10d", roomStandards, floorQuantity);
+    }
 }

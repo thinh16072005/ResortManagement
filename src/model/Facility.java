@@ -1,9 +1,5 @@
 package model;
 
-import model.accomodation.House;
-import model.accomodation.Room;
-import model.accomodation.Villa;
-
 public abstract class Facility {
     protected String serviceId;
     protected String serviceName;
@@ -21,22 +17,13 @@ public abstract class Facility {
         this.rentingType = rentingType;
     }
 
-    public String getserviceId() {
+    public Facility() {}
+
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setserviceId(String serviceId) {
-        String regex = "";
-        if (this instanceof Villa) {
-            regex = "^SVVL-[0-9]{4}$";
-        } else if (this instanceof House) {
-            regex = "^SVHO-[0-9]{4}$";
-        } else if (this instanceof Room) {
-            regex = "^SVRO-[0-9]{4}$";
-        }
-        if (!serviceId.matches(regex)) {
-            throw new IllegalArgumentException("Service ID must be in format SVXX-YYYY with X is V, H, R and Y is 4 digits");
-        }
+    public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -48,7 +35,17 @@ public abstract class Facility {
         if (!Character.isUpperCase(serviceName.charAt(0))) {
             throw new IllegalArgumentException("Service name must start with an uppercase letter.");
         }
-        this.serviceName = serviceName;
+        else {
+            if (serviceId.startsWith("SVVL")) {
+                this.serviceName = "Villa";
+            } else if (serviceId.startsWith("SVHO")) {
+                this.serviceName = "House";
+            } else if (serviceId.startsWith("SVRO")) {
+                this.serviceName = "Room";
+            } else {
+                throw new IllegalArgumentException("Invalid service ID prefix.");
+            }
+        }
     }
 
     public double getAreaUsage() {
@@ -89,11 +86,20 @@ public abstract class Facility {
     }
 
     public void setRentingType(String rentingType) {
-        if (!Character.isUpperCase(rentingType.charAt(0))) {
-            throw new IllegalArgumentException("Renting type must start with an uppercase letter.");
+        if (rentingType.equalsIgnoreCase("Year")) {
+            this.rentingType = "Year";
+        } else if (rentingType.equalsIgnoreCase("Month")) {
+            this.rentingType = "Month";
+        } else if (rentingType.equalsIgnoreCase("Day")) {
+            this.rentingType = "Day";
+        } else {
+            throw new IllegalArgumentException("Invalid renting type.");
         }
-        this.rentingType = rentingType;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return String.format("%-10s %-15s %-10.2f %-15.2f %-10d %-15s",
+                serviceId, serviceName, areaUsage, rentingPrice, maxPeople, rentingType);
+    }
 }

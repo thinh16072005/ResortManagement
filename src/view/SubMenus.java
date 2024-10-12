@@ -23,7 +23,7 @@ public interface SubMenus {
             "Display list of customers",
             "Add new customers",
             "Edit customers",
-            "Return main menu",
+            "Return to main menu",
         };
 
     // Facility

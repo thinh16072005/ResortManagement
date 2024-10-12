@@ -4,24 +4,18 @@ import model.person.Customer;
 import repository.customer.CustomerRepo;
 import utils.Validation;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.lang.reflect.Field;
 
 public class CustomerService extends CustomerRepo implements ICustomerService {
 
     @Override
     public void save() {
-        try (var writer = new BufferedWriter(new FileWriter("customer.csv", true))) {
-            for (Customer cus : cusList) {
-                writer.write(cus.toString());
-                writer.newLine();
-            }
-            System.out.println("Employee data saved.");
-        } catch (IOException e) {
-            System.out.println("Error saving employee data: " + e.getMessage());
+        try {
+            writeFile(cusList);
+            System.out.println("Customer data saved.");
+        } catch (Exception e) {
+            System.out.println("Error saving customer data: " + e.getMessage());
         }
-
     }
 
     @Override
@@ -94,8 +88,14 @@ public class CustomerService extends CustomerRepo implements ICustomerService {
             System.out.println("Customer found: ");
             System.out.println(customer);
 
-            String attribute = Validation.getValue("Enter attribute to update " +
-                    "(name, dob, gender, idcard, phonenumber, email, type, address): ");
+            Class<?> customerFields = Class.forName("Customer");
+
+            Field[] fields = customerFields.getSuperclass().getDeclaredFields();
+            for (Field field : fields) {
+                System.out.print("\t" + field.getName());
+            }
+            
+            String attribute = Validation.getValue("\nEnter attribute to update: ");
             switch (attribute.toLowerCase()) {
                 case "name" -> customer.setName(Validation.getValue("Enter new name: "));
                 case "dob" -> customer.setDateOfBirth(Validation.convertStringToDate(Validation.getValue("Enter new date of birth: ")));

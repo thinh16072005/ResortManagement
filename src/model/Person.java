@@ -64,7 +64,7 @@ public abstract class Person {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        if (!Pattern.matches("^\\d{10}$", phoneNumber)) {
+        if (!Pattern.matches("^\\d{1,10}$", phoneNumber)) {
             System.err.println("Invalid phone number. 10 digits max only!");
         }
         else {this.phoneNumber = phoneNumber;}
