@@ -16,5 +16,5 @@ public interface ICustomerRepo extends Repository<Customer, ArrayList<Customer>>
     public void writeFile(ArrayList<Customer> entities);
 
     @Override
-    ArrayList<Customer> readfile();
+    ArrayList<Customer> readFile();
 }

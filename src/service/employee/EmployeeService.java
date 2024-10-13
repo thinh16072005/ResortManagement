@@ -59,7 +59,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
     @Override
     public void display() {
-        readfile();
+        readFile();
         for (Employee emp : empList) {
             System.out.println(emp);
         }
@@ -67,7 +67,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
     @Override
     public Employee find(String id) throws Exception {
-        readfile();
+        readFile();
         try {
             for (Employee emp : empList) {
                 if (emp.getEmployeeId().equals(id)) {

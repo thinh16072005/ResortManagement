@@ -21,7 +21,7 @@ public class FacilityService extends FacilityRepo implements IFacilityService {
     }
 
     @Override
-    public Facility find(String id) throws Exception {
+    public Facility find(String id) {
         for (Facility facility : facilityUsageMap.keySet()) {
             if (facility.getServiceId().equals(id)) {
                 return facility;
@@ -32,10 +32,9 @@ public class FacilityService extends FacilityRepo implements IFacilityService {
 
     @Override
     public void display() {
-        readfile();
+        readFile();
         if (facilityUsageMap.isEmpty()) {
             System.err.println("No facilities found.");
-            return;
         } else {
             System.out.printf("%-10s %-15s %-10s %-15s %-10s %-15s %-15s %-10s\n",
                     "ID", "Name", "Area", "Price", "Max People", "Type", "Room Standards", "Floors");
@@ -46,11 +45,23 @@ public class FacilityService extends FacilityRepo implements IFacilityService {
         }
     }
 
+    public void incrementUsageCount(String facilityId) {
+        for (Facility facility : facilityUsageMap.keySet()) {
+            if (facility.getServiceId().equals(facilityId)) {
+                facilityUsageMap.put(facility, facilityUsageMap.get(facility) + 1);
+                writeFile(facilityUsageMap);
+                break;
+            } else {
+                System.err.println("Facility not found.");
+                return;
+            }
+        }
+    }
+
     public void displayFacilitiesForMaintenance() {
-        readfile();
+        readFile();
         if (facilityUsageMap.isEmpty()) {
             System.err.println("No facilities found.");
-            return;
         } else {
             System.err.println("Facilities that need maintenance: ");
             System.out.printf("%-10s %-15s %-10s %-15s %-10s %-15s %-15s %-10s\n",
@@ -80,23 +91,29 @@ public class FacilityService extends FacilityRepo implements IFacilityService {
         facility.setMaxPeople(maxPeople);
         facility.setRentingType(rentingType);
 
-        if (facility instanceof Villa) {
-            String roomStandards = Validation.checkString("Enter room standards: ", "Room standards must be a string", "^[a-zA-Z]+$");
-            double poolArea = Validation.checkDouble("Enter pool area: ", "Pool area must be a positive number");
-            int floorQuantity = Validation.checkInt("Enter floor quantity: ", "Floor quantity must be a positive number");
-            ((Villa) facility).setRoomStandards(roomStandards);
-            ((Villa) facility).setPoolArea(poolArea);
-            ((Villa) facility).setFloorQuantity(floorQuantity);
+        switch (facility) {
+            case Villa villa -> {
+                String roomStandards = Validation.checkString("Enter room standards: ", "Room standards must be a string", "^[a-zA-Z]+$");
+                double poolArea = Validation.checkDouble("Enter pool area: ", "Pool area must be a positive number");
+                int floorQuantity = Validation.checkInt("Enter floor quantity: ", "Floor quantity must be a positive number");
+                villa.setRoomStandards(roomStandards);
+                villa.setPoolArea(poolArea);
+                villa.setFloorQuantity(floorQuantity);
 
-        } else if (facility instanceof House) {
-            String roomStandards = Validation.checkString("Enter room standards: ", "Room standards must be a string", "^[a-zA-Z]+$");
-            int floorQuantity = Validation.checkInt("Enter floor quantity: ", "Floor quantity must be a positive number");
-            ((House) facility).setRoomStandards(roomStandards);
-            ((House) facility).setFloorQuantity(floorQuantity);
+            }
+            case House house -> {
+                String roomStandards = Validation.checkString("Enter room standards: ", "Room standards must be a string", "^[a-zA-Z]+$");
+                int floorQuantity = Validation.checkInt("Enter floor quantity: ", "Floor quantity must be a positive number");
+                house.setRoomStandards(roomStandards);
+                house.setFloorQuantity(floorQuantity);
 
-        } else if (facility instanceof Room) {
-            String freeService = Validation.checkString("Enter free service: ", "Free service must be a string", "^[a-zA-Z]+$");
-            ((Room) facility).setFreeServices(freeService);
+            }
+            case Room room -> {
+                String freeService = Validation.checkString("Enter free service: ", "Free service must be a string", "^[a-zA-Z]+$");
+                room.setFreeServices(freeService);
+            }
+            default -> {
+            }
         }
         String confirm = Validation.checkString("Do you want to add this facility? (Y/N): ", "Invalid input", "^[YyNn]$");
         if (confirm.equalsIgnoreCase("Y")) {

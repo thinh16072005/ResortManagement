@@ -17,7 +17,7 @@ public class FacilityRepo implements IFacilityRepo {
 
     protected LinkedHashMap<Facility, Integer> facilityUsageMap = new LinkedHashMap<>();
     @Override
-    public LinkedHashMap<Facility, Integer> readfile() {
+    public LinkedHashMap<Facility, Integer> readFile() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(path + facilityPath))) {
 

@@ -54,7 +54,7 @@ public abstract class Person {
 
     public void setIdCard(String idCard) {
         if (!Pattern.matches("\\d{9,12}$", idCard)) {
-            System.err.println("Invalid ID card. Must be between 9 and 12 digits.");
+            System.err.print("Invalid ID card. Must be between 9 and 12 digits.");
         }
         else {this.idCard = idCard;}
     }

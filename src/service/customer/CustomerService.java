@@ -58,7 +58,7 @@ public class CustomerService extends CustomerRepo implements ICustomerService {
 
     @Override
     public void display() {
-        readfile();
+        readFile();
         for (Customer cus : cusList) {
             System.out.println(cus);
         }
@@ -66,7 +66,7 @@ public class CustomerService extends CustomerRepo implements ICustomerService {
 
     @Override
     public Customer find(String entity) throws Exception {
-        readfile();
+        readFile();
         try {
             for (Customer cus : cusList) {
                 if (cus.getCustomerId().equals(entity)) {

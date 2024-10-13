@@ -16,7 +16,7 @@ public class EmployeeRepo implements IEmployeeRepo {
     protected ArrayList<Employee> empList = new ArrayList<>();
     
     @Override
-    public ArrayList<Employee> readfile() {
+    public ArrayList<Employee> readFile() {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(path + employeePath));

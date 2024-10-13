@@ -112,22 +112,19 @@ public class ResortController extends Menu implements SubMenus {
             public void execute(int ch) throws Exception{
                 switch (ch) {
                     case 1 -> {
-                        // bookingService.add();
+                        bookingService.add(null);
                     }
                     case 2 -> {
                         bookingService.display();
                     }
                     case 3 -> {
-                        // bookingService.createContract();
+                         bookingService.addContract();
                     }
                     case 4 -> {
-                        // bookingService.displayContract();
+                         bookingService.displayContracts();
                     }
                     case 5 -> {
-                        // bookingService.editContract();
-                    }
-                    case 6 -> {
-                        System.exit(0);
+                         bookingService.editContract();
                     }
                 }
             }

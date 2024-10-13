@@ -33,7 +33,7 @@ public class CustomerRepo implements ICustomerRepo {
     }
 
     @Override
-    public ArrayList<Customer> readfile() {
+    public ArrayList<Customer> readFile() {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(path + customerPath));

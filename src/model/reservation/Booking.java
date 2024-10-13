@@ -2,6 +2,7 @@ package model.reservation;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Booking implements Comparable<Booking> {
     private String bookingId;
@@ -101,5 +102,18 @@ public class Booking implements Comparable<Booking> {
             return startDateComparison;
         }
         return this.endDate.compareTo(o.endDate);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(bookingId, booking.bookingId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingId);
     }
 }

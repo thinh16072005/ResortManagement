@@ -1,19 +1,19 @@
 package repository.booking;
 
-import model.person.Customer;
 import model.reservation.Booking;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeSet;
 
 public class BookingRepo implements IBookingRepo {
     protected TreeSet<Booking> bookingList = new TreeSet<>();
     @Override
-    public TreeSet<Booking> readfile() {
+    public TreeSet<Booking> readFile() {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(path + bookingPath));
@@ -36,6 +36,14 @@ public class BookingRepo implements IBookingRepo {
 
     @Override
     public void writeFile(TreeSet<Booking> bookings) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path + bookingPath, true))) {
+            for (Booking booking : bookings) {
+                bw.write(booking.getBookingId() + "," + sdf.format(booking.getBookingDate()) + "," + sdf.format(booking.getStartDate()) + "," + sdf.format(booking.getEndDate()) + "," + booking.getCustomerId() + "," + booking.getServiceId());
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
 }

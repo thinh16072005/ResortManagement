@@ -9,7 +9,7 @@ import java.io.File;
 public interface Repository<T, C> {
     final String path = new File("src").getAbsolutePath();
     
-    C readfile();
+    C readFile();
     
     void writeFile(C entities);
 }
