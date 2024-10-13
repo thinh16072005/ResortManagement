@@ -1,9 +1,9 @@
 package controller;
 
-import model.Facility;
 import model.accomodation.House;
 import model.accomodation.Room;
 import model.accomodation.Villa;
+import service.booking.BookingService;
 import service.customer.CustomerService;
 import service.employee.EmployeeService;
 import service.facility.FacilityService;
@@ -106,10 +106,30 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayBookingMenu() throws Exception {
+        BookingService bookingService = new BookingService();
         Menu bookingMenu = new Menu("\nBOOKING OPTIONS", bookingOptions) {
             @Override
-            public void execute(int ch) {
-                
+            public void execute(int ch) throws Exception{
+                switch (ch) {
+                    case 1 -> {
+                        // bookingService.add();
+                    }
+                    case 2 -> {
+                        bookingService.display();
+                    }
+                    case 3 -> {
+                        // bookingService.createContract();
+                    }
+                    case 4 -> {
+                        // bookingService.displayContract();
+                    }
+                    case 5 -> {
+                        // bookingService.editContract();
+                    }
+                    case 6 -> {
+                        System.exit(0);
+                    }
+                }
             }
         };
         bookingMenu.run();

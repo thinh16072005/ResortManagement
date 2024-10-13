@@ -45,7 +45,7 @@ public interface SubMenus {
     String[] bookingOptions = {
             "Add new booking",
             "Display list booking",
-            "Create new contracts",
+            "Create new contract",
             "Display list of contracts",
             "Edit contracts",
             "Return to main menu",
