@@ -60,9 +60,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
     @Override
     public void display() {
         readFile();
-        for (Employee emp : empList) {
-            System.out.println(emp);
-        }
+        empList.forEach(System.out::println);
     }
 
     @Override

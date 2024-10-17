@@ -48,6 +48,7 @@ public class EmployeeRepo implements IEmployeeRepo {
                         employee.getPhoneNumber() + "," +
                         employee.getEmail() + "," +
                         employee.getPosition() + "," +
+                        employee.getLevel() + "," +
                         employee.getSalary();
                 output.write(line);
                 output.newLine();

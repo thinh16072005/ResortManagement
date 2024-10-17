@@ -4,10 +4,6 @@
  */
 package view;
 
-/**
- *
- * @author hungt
- */
 public interface SubMenus {
     
     void displayEmployeeMenu() throws Exception;

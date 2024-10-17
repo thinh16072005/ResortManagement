@@ -6,9 +6,11 @@ package service.booking;
 
 
 import model.Facility;
+import model.person.Customer;
 import model.reservation.Booking;
 import model.reservation.Contract;
 import repository.booking.BookingRepo;
+import repository.customer.CustomerRepo;
 import service.customer.CustomerService;
 import service.facility.FacilityService;
 import utils.Validation;
@@ -16,18 +18,17 @@ import utils.Validation;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.Comparator;
-import java.util.Iterator;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class BookingService extends BookingRepo implements IBookingService {
     CustomerService customerService = new CustomerService();
     FacilityService facilityService = new FacilityService();
 
     Queue<Booking> bookingQueue = new PriorityQueue<>(Comparator.comparing(Booking::getStartDate));
-
 
     @Override
     public Booking find(String entity) throws Exception {
@@ -42,9 +43,7 @@ public class BookingService extends BookingRepo implements IBookingService {
     @Override
     public void display() {
         readFile();
-        for (Booking booking : bookingList) {
-            System.out.println(booking.toString());
-        }
+        bookingList.forEach(System.out::println);
     }
 
     @Override
@@ -71,7 +70,6 @@ public class BookingService extends BookingRepo implements IBookingService {
             System.out.println("Booking added successfully.");
         } else {
             System.out.println("Booking not added.");
-            return;
         }
     }
 
@@ -85,7 +83,7 @@ public class BookingService extends BookingRepo implements IBookingService {
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
             if (booking.getServiceId().startsWith("SVVL") || booking.getServiceId().startsWith("SVHO")) {
-                System.out.println(booking.toString());
+                System.out.println(booking);
                 String contractID = Validation.checkString("Enter contract ID: ", "Invalid contract ID. Must be in the format CTd.", "^CT\\d+$");
                 Facility facility = facilityService.find(booking.getServiceId());
                 if (facility == null) {
@@ -93,7 +91,7 @@ public class BookingService extends BookingRepo implements IBookingService {
                     continue;
                 }
                 double deposit = Validation.checkDouble("Enter deposit amount: ", "Invalid deposit amount. Must be a positive number.");
-                double totalAmount = facility.getRentingPrice() * facility.getMaxPeople() * facility.getAreaUsage();
+                double totalAmount = facility.getRentingPrice() * facility.getMaxPeople() * facility.getAreaUsage() - deposit;
                 Contract contract = new Contract(contractID, booking.getServiceId(), deposit, totalAmount);
                 writeContractToCSV(contract);
                 System.out.println("Contract created successfully.");
@@ -101,14 +99,7 @@ public class BookingService extends BookingRepo implements IBookingService {
         }
     }
 
-    private void writeContractToCSV(Contract contract) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path + contractPath, true))) {
-            writer.write(contract.getContractId() + "," + contract.getBookingId() + "," + contract.getDeposit() + "," + contract.getTotalPrice());
-            writer.newLine();
-        } catch (IOException e) {
-            System.out.println("Error writing contract to CSV file: " + e.getMessage());
-        }
-    }
+
 
     public void displayContracts() {
         bookingQueue.addAll(bookingList);

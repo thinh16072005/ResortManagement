@@ -1,11 +1,9 @@
 package repository.booking;
 
 import model.reservation.Booking;
+import model.reservation.Contract;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TreeSet;
@@ -44,6 +42,15 @@ public class BookingRepo implements IBookingRepo {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    protected void writeContractToCSV(Contract contract) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path + contractPath, true))) {
+            writer.write(contract.getContractId() + "," + contract.getBookingId() + "," + contract.getDeposit() + "," + contract.getTotalPrice());
+            writer.newLine();
+        } catch (IOException e) {
+            System.out.println("Error writing contract to CSV file: " + e.getMessage());
         }
     }
 }

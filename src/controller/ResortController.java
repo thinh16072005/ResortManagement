@@ -7,6 +7,7 @@ import service.booking.BookingService;
 import service.customer.CustomerService;
 import service.employee.EmployeeService;
 import service.facility.FacilityService;
+import service.promotion.PromoService;
 import view.Menu;
 import view.SubMenus;
 
@@ -134,10 +135,14 @@ public class ResortController extends Menu implements SubMenus {
 
     @Override
     public void displayPromotionMenu() throws Exception {
+        PromoService promo = new PromoService();
         Menu promotionMenu = new Menu("\nPROMOTION OPTIONS", promotionOptions) {
             @Override
             public void execute(int ch) {
-                
+                switch (ch) {
+                    case 1 -> promo.displayCustomersByYear();
+                    case 2 -> promo.distributeVouchers();
+                }
             }
         };
         promotionMenu.run();

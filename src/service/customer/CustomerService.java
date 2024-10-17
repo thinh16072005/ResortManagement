@@ -5,6 +5,8 @@ import repository.customer.CustomerRepo;
 import utils.Validation;
 
 import java.lang.reflect.Field;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CustomerService extends CustomerRepo implements ICustomerService {
 
@@ -59,9 +61,7 @@ public class CustomerService extends CustomerRepo implements ICustomerService {
     @Override
     public void display() {
         readFile();
-        for (Customer cus : cusList) {
-            System.out.println(cus);
-        }
+        cusList.forEach(System.out::println);
     }
 
     @Override
