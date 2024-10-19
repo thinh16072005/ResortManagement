@@ -5,26 +5,30 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import model.person.Customer;
+import model.person.Employee;
 
 public class CustomerRepo implements ICustomerRepo {
 
-    protected ArrayList<Customer> cusList = new ArrayList<>();
+    private final ArrayList<Customer> cusList = new ArrayList<>();
+
+    public ArrayList<Customer> getCusList() {
+        return cusList;
+    }
 
     @Override
     public void writeFile(ArrayList<Customer> customers) {
         try (BufferedWriter output = new BufferedWriter(new FileWriter(path + customerPath, true))) {
             for (Customer customer : customers) {
-                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                        customer.getCustomerId(),
-                        customer.getName(),
-                        customer.getDateOfBirth(),
-                        customer.getGender(),
-                        customer.getIdCard(),
-                        customer.getPhoneNumber(),
-                        customer.getEmail(),
-                        customer.getCustomerType(),
-                        customer.getAddress());
-                output.write(line);
+                output.write(customer.getCustomerId() + ","
+                        + customer.getName() + ","
+                        + new SimpleDateFormat("dd/MM/yyyy").format(customer.getDateOfBirth())
+                        + "," + customer.getGender()
+                        + "," + customer.getIdCard()
+                        + "," + customer.getPhoneNumber()
+                        + "," + customer.getEmail() + ","
+                        + customer.getCustomerType() + ","
+                        + customer.getAddress()
+                );
                 output.newLine();
             }
         } catch (IOException e) {

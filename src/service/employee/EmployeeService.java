@@ -5,6 +5,8 @@ import repository.employee.EmployeeRepo;
 import utils.Validation;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
@@ -22,7 +24,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
     public void add(Employee employee) {
         try {
             String id = Validation.getValue("Enter employee ID: ");
-            String name = Validation.checkString("Enter employee name: ", "Name should contain letters only!", "^[a-zA-Z]+$");
+            String name = Validation.checkString("Enter employee name: ", "Name should contain letters only!", "^[a-zA-Z ]+$");
             String dob = Validation.getValue("Enter employee date of birth: ");
             String gender = Validation.checkString("Male or Female? (Y/N): ", "Y/N only!", "^[Y, N]+$");
             String idCard = Validation.checkString("Enter employee ID card: ", "ID should contain numbers only!", "^[0-9]+$");
@@ -38,17 +40,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
             }
             else {
                 employee = new Employee(id, name, Validation.convertStringToDate(dob), Validation.convertStringToBoolean(gender), idCard, phoneNumber, email, level, position, salary);
-                boolean exists = false;
-                for (int i = 0; i < empList.size(); i++) {
-                    if (empList.get(i).getEmployeeId().equals(id)) {
-                        empList.set(i, employee);
-                        exists = true;
-                        break;
-                    }
-                }
-                if (!exists) {
-                    empList.add(employee);
-                }
+                empList.add(employee);
                 save();
             }
         } catch (Exception e) {
@@ -59,8 +51,26 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
     @Override
     public void display() {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         readFile();
-        empList.forEach(System.out::println);
+        System.out.println("-----------------------------------------------------------------------------  Employee List  ------------------------------------------------------------------------------");
+        System.out.printf("%-10s | %-20s | %-15s | %-10s | %-12s | %-15s | %-25s | %-15s | %-15s | %-10s\n",
+                "ID", "Name", "Date of Birth", "Gender", "ID Card", "Phone Number", "Email", "Degree", "Position", "Salary");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        for (Employee employee : empList) {
+            System.out.printf("%-10s | %-20s | %-15s | %-10s | %-12s | %-15s | %-25s | %-15s | %-15s | %-10.2f\n",
+                    employee.getEmployeeId(),
+                    employee.getName(),
+                    employee.getDateOfBirth(),
+                    employee.getGender(),
+                    employee.getIdCard(),
+                    employee.getPhoneNumber(),
+                    employee.getEmail(),
+                    employee.getLevel(),
+                    employee.getPosition(),
+                    employee.getSalary()); // Ensure this is a double
+        }
     }
 
     @Override
@@ -88,7 +98,7 @@ public class EmployeeService extends EmployeeRepo implements IEmployeeService {
 
             // Let the user choose which attribute to update
             // This is done by using reflection to get the fields of the superclass
-            Class<?> customerFields = Class.forName("Employee");
+            Class<?> customerFields = Class.forName("model.person.Employee");
             Field[] fields = customerFields.getSuperclass().getDeclaredFields();
             for (Field field : fields) {
                 System.out.print("\t" + field.getName());

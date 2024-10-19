@@ -5,11 +5,13 @@ import model.reservation.Contract;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TreeSet;
 
 public class BookingRepo implements IBookingRepo {
     protected TreeSet<Booking> bookingList = new TreeSet<>();
+
     @Override
     public TreeSet<Booking> readFile() {
         String line;

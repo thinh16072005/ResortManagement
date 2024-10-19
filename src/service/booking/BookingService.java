@@ -43,7 +43,21 @@ public class BookingService extends BookingRepo implements IBookingService {
     @Override
     public void display() {
         readFile();
-        bookingList.forEach(System.out::println);
+        System.out.println("-----------------------------------------------------------------------------  Customer List  ------------------------------------------------------------------------------");
+        System.out.printf("%-10s | %-20s | %-15s | %-10s | %-12s | %-15s\n",
+                "ID", "Booking date", "Start date", "End date", "Customer ID", "Service ID");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+        for (Booking booking : bookingList) {
+            System.out.printf("%-10s | %-20s | %-15s | %-10s | %-12s | %-15s \n",
+                    booking.getBookingId(),
+                    booking.getBookingDate(),
+                    booking.getStartDate(),
+                    booking.getEndDate(),
+                    booking.getCustomerId(),
+                    booking.getServiceId()
+            );
+        }
     }
 
     @Override
@@ -80,8 +94,9 @@ public class BookingService extends BookingRepo implements IBookingService {
             return;
         }
         bookingQueue.addAll(bookingList);
+        Booking booking;
         while (!bookingQueue.isEmpty()) {
-            Booking booking = bookingQueue.poll();
+            while ((booking = bookingQueue.poll()) != null) {
             if (booking.getServiceId().startsWith("SVVL") || booking.getServiceId().startsWith("SVHO")) {
                 System.out.println(booking);
                 String contractID = Validation.checkString("Enter contract ID: ", "Invalid contract ID. Must be in the format CTd.", "^CT\\d+$");
@@ -95,6 +110,7 @@ public class BookingService extends BookingRepo implements IBookingService {
                 Contract contract = new Contract(contractID, booking.getServiceId(), deposit, totalAmount);
                 writeContractToCSV(contract);
                 System.out.println("Contract created successfully.");
+            }
             }
         }
     }

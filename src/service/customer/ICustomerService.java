@@ -22,6 +22,6 @@ public interface ICustomerService extends Service<Customer> {
     @Override
     public Customer find(String entity) throws Exception;
 
-    void update(Customer e);
+    void update();
 
 }

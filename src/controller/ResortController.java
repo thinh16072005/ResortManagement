@@ -69,7 +69,7 @@ public class ResortController extends Menu implements SubMenus {
                 switch (ch) {
                     case 1 -> cussrv.display();
                     case 2 -> cussrv.add(null);
-                    case 3 -> cussrv.update(null);
+                    case 3 -> cussrv.update();
                 }
             }
         };

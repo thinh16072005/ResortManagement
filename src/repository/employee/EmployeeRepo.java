@@ -41,20 +41,20 @@ public class EmployeeRepo implements IEmployeeRepo {
     public void writeFile(ArrayList<Employee> employees) {
         try (BufferedWriter output = new BufferedWriter(new FileWriter(path + employeePath, true))) {
             for (Employee employee : employees) {
-                String line = employee.getEmployeeId() + "," +
-                        employee.getName() + "," +
-                        new SimpleDateFormat("dd/MM/yyyy").format(employee.getDateOfBirth()) + "," +
-                        (employee.getGender() ? "Male" : "Female") + "," +
-                        employee.getPhoneNumber() + "," +
-                        employee.getEmail() + "," +
-                        employee.getPosition() + "," +
-                        employee.getLevel() + "," +
-                        employee.getSalary();
-                output.write(line);
+                output.write(employee.getEmployeeId() + "," +
+                        employee.getName() + ","
+                        + new SimpleDateFormat("dd/MM/yyyy").format(employee.getDateOfBirth())
+                        + "," + employee.getGender()
+                        + "," + employee.getIdCard()
+                        + "," + employee.getPhoneNumber()
+                        + "," + employee.getEmail() + ","
+                        + employee.getLevel() + ","
+                        + employee.getPosition() + ","
+                        + employee.getSalary());
                 output.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
