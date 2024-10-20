@@ -109,7 +109,7 @@ public class BookingService extends BookingRepo implements IBookingService {
                 double totalAmount = facility.getRentingPrice() * facility.getMaxPeople() * facility.getAreaUsage() - deposit;
                 Contract contract = new Contract(contractID, booking.getServiceId(), deposit, totalAmount);
                 writeContractToCSV(contract);
-                System.out.println("Contract created successfully.");
+                // System.out.println("Contract created successfully.");
             }
             }
         }
