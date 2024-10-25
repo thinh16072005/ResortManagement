@@ -123,7 +123,7 @@ public class BookingService extends BookingRepo implements IBookingService {
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
             if (booking.getServiceId().startsWith("SVVL") || booking.getServiceId().startsWith("SVHO")) {
-                System.out.println(booking.toString());
+                System.out.println(booking);
             }
         }
     }

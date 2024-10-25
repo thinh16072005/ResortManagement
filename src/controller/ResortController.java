@@ -110,7 +110,7 @@ public class ResortController extends Menu implements SubMenus {
         BookingService bookingService = new BookingService();
         Menu bookingMenu = new Menu("\nBOOKING OPTIONS", bookingOptions) {
             @Override
-            public void execute(int ch) throws Exception{
+            public void execute(int ch) {
                 switch (ch) {
                     case 1 -> {
                         bookingService.add(null);
